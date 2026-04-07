@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FabricMod Visual Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <div class="header-left">
+        <span class="logo">&#9608; FabricMod Visual Builder</span>
+      </div>
+      <div class="header-center">
+        <button id="btn-save" title="プロジェクトを保存"><span class="btn-icon">&#128190;</span> 保存</button>
+        <button id="btn-load" title="プロジェクトを読み込み"><span class="btn-icon">&#128194;</span> 読み込み</button>
+        <button id="btn-export" title="MOD を書き出す"><span class="btn-icon">&#9654;</span> エクスポート</button>
+        <button id="btn-copy" title="コードをコピー"><span class="btn-icon">&#128203;</span> コピー</button>
+        <button id="btn-template" title="テンプレート"><span class="btn-icon">&#128196;</span> テンプレート</button>
+        <button id="btn-recipe-ui" title="レシピをフォームで追加"><span class="btn-icon">&#127860;</span> レシピ</button>
+        <button id="btn-texture-ui" title="テクスチャを登録"><span class="btn-icon">&#128247;</span> テクスチャ</button>
+        <button id="btn-resources" title="追加リソースを編集"><span class="btn-icon">&#128736;</span> リソース</button>
+        <button id="btn-build-check" title="ビルド確認"><span class="btn-icon">&#9881;</span> ビルド確認</button>
+        <button id="btn-guide" title="使い方"><span class="btn-icon">&#10067;</span> ガイド</button>
+      </div>
+      <div class="header-right">
+        <span class="version" id="app-version">v1.1.0</span>
+      </div>
+    </header>
+
+    <div id="workspace-tools">
+      <div class="tool-search">
+        <label for="toolbox-search">ブロック検索</label>
+        <input id="toolbox-search" type="text" placeholder="例: item, gui, enchant, ore">
+      </div>
+      <div class="warning-panel">
+        <strong>互換警告</strong>
+        <div id="compatibility-warnings">まだ警告はありません。</div>
+      </div>
+    </div>
+
+    <div id="main">
+      <div id="blockly-area">
+        <div id="blockly-div"></div>
+      </div>
+
+      <div id="resize-handle"></div>
+
+      <div id="code-panel">
+        <div class="code-tabs">
+          <button class="code-tab active" data-tab="main">MainMod.java</button>
+          <button class="code-tab" data-tab="items">ModItems.java</button>
+          <button class="code-tab" data-tab="blocks">ModBlocks.java</button>
+          <button class="code-tab" data-tab="events">ModEvents.java</button>
+          <button class="code-tab" data-tab="commands">ModCommands.java</button>
+          <button class="code-tab" data-tab="containers">ModContainers.java</button>
+          <button class="code-tab" data-tab="sync">ModSync.java</button>
+          <button class="code-tab" data-tab="gui">GUI Screens</button>
+          <button class="code-tab" data-tab="recipes">Recipes</button>
+        </div>
+
+        <div class="code-mode-bar">
+          <button id="btn-mode-auto" class="mode-btn active" title="自動生成コードを見る">自動</button>
+          <button id="btn-mode-manual" class="mode-btn" title="コードを手動で編集">手動</button>
+          <span id="code-mode-label" class="mode-label">自動生成モード</span>
+        </div>
+
+        <div id="code-display-wrapper">
+          <pre id="code-preview"><code id="code-content">// ブロックを配置すると、ここに生成コードが表示されます。</code></pre>
+          <textarea id="code-editor" spellcheck="false" style="display:none;">// 手動編集モード</textarea>
+        </div>
+      </div>
+    </div>
+
+    <footer id="statusbar">
+      <span id="status-text">準備完了</span>
+      <span id="block-count">ブロック: 0</span>
+    </footer>
+  </div>
+
+  <script src="../../node_modules/blockly/blockly_compressed.js"></script>
+  <script src="../../node_modules/blockly/blocks_compressed.js"></script>
+  <script src="../../node_modules/blockly/msg/ja.js"></script>
+  <script src="blocks/mod_blocks.js"></script>
+  <script src="blocks/item_blocks.js"></script>
+  <script src="blocks/block_blocks.js"></script>
+  <script src="blocks/recipe_blocks.js"></script>
+  <script src="blocks/event_blocks.js"></script>
+  <script src="blocks/action_blocks.js"></script>
+  <script src="blocks/condition_blocks.js"></script>
+  <script src="blocks/variable_blocks.js"></script>
+  <script src="blocks/command_blocks.js"></script>
+  <script src="blocks/gamevalue_blocks.js"></script>
+  <script src="blocks/armor_blocks.js"></script>
+  <script src="blocks/advanced_blocks.js"></script>
+  <script src="blocks/mega_blocks.js"></script>
+  <script src="blocks/entity_blocks.js"></script>
+  <script src="blocks/systems_blocks.js"></script>
+  <script src="blocks/template_blocks.js"></script>
+  <script src="blocks/gui_blocks.js"></script>
+  <script src="guide.js"></script>
+  <script src="generators/gui_generator.js"></script>
+  <script src="generators/java_generator.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
